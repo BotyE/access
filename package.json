@@ -1,0 +1,31 @@
+{
+  "name": "access",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "algebraic-captcha": "^1.0.1",
+    "discord.js": "^11.5.1",
+    "enmap": "^5.2.3",
+    "gm-captcha": "^1.0.2",
+    "http": "^0.0.0",
+    "math-captcha": "^0.1.1",
+    "node.js": "^0.0.0",
+    "svg2img": "^0.6.1",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BotyE/access.git"
+  },
+  "author": "BotyE",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BotyE/access/issues"
+  },
+  "homepage": "https://github.com/BotyE/access#readme"
+}
