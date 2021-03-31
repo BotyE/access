@@ -8,13 +8,13 @@ bot.commands = new Discord.Collection();
 bot.on("ready",async () => {
   console.log(`${bot.user.username} онлайн!`);
 });
-
 bot.on('guildMemberAdd', member => {
     member.addRole("619257593617055766");
-    member.addRole("650988934863519744");
     let embed= new Discord.RichEmbed().setTitle(`PLACE`).setDescription("Добро пожаловать на сервер Place.\nЧтобы стать полноценным участником сервера, вам необходимо пройти верификацию.\n[Верификация](https://discordapp.com/channels/617776960097091783/650795326298521640) в этом канале находится вся информация о прохождении верификации.")
     member.send(embed);
+    
   });
+  
 bot.on('raw', react => {
   if(react.t === `MESSAGE_REACTION_ADD` )
   {
@@ -22,20 +22,19 @@ bot.on('raw', react => {
   {
     
     let reactionChannel = bot.channels.get(react.d.channel_id);
-    if(reactionChannel.messages.has(react.d.message_id))
-      return;
-    else {
     reactionChannel.fetchMessage(react.d.message_id).then(msg=>{
       let msgReaction = msg.reactions.get(react.d.emoji.name);
       let user = bot.users.get(react.d.user_id);
+      console.log(msgReaction)
       return bot.emit('messageReactionAdd',msgReaction,user);
     });
-  }
 
   }
 }
 });
 bot.on('messageReactionAdd', async (messageReaction,user) => {
+  if(messageReaction.message.id!=`654644980069040128`)
+        return;
     const message = messageReaction.message;
     const member = message.guild.members.get(user.id);
     const algebraicCaptcha = new AlgebraicCaptcha({
